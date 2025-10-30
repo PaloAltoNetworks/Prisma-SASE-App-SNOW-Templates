@@ -1,0 +1,57 @@
+const Template = {
+    "snippet_configuration": {
+        "name": "Dummy Snippet Name",
+        "description": "Dummy description1",
+        "snippet_snapshot_description": "Dummy description2",
+        "publisher_tenant": "Metron Labs",
+        "lables": []
+    },
+    "subscriber_tenant_configuration": [{
+        "tenant_name": "Ent 1",
+        "folder_list": ["Prisma Access"],
+        "commit_details": {
+            "admin": "all",
+            "description": "Commit description for Ent 1 tenant"
+        }
+    }, {
+        "tenant_name": "Ent 2",
+        "folder_list": ["Prisma Access"],
+        "commit_details": {
+            "admin": "all",
+            "description": "Commit description for Ent 2 tenant"
+        }
+    }],
+    "security_rules": [{
+        "name": "DummySecurity-Rule",
+        "description": "Dummy Description for Security rule",
+        "enable": false,
+        "tag": [],
+        "source_configuration": {
+            "zones": ["any"],
+            "addresses": ["any"],
+            "negate": false,
+            "users": ["any"],
+            "devices": ["any"]
+        },
+        "destination_configuration": {
+            "zones": ["any"],
+            "addresses": ["any"],
+            "negate": false,
+            "devices": ["any"]
+        },
+        "applications": ["any"],
+        "service": ["application-default"],
+        "url_category": ["any"],
+        "tenant_restriction": ["any"],
+        "action_configuration": {
+            "action": "deny",
+            "profile_group": "best-practice"
+        },
+        "log_configuration": {
+            "log_start": false,
+            "log_end": true,
+            "log_setting": "Cortex Data Lake"
+        },
+        "qos_marking": ""
+    }]
+};

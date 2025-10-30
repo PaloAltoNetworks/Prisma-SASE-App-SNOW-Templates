@@ -1,4 +1,4 @@
-{
+const Template = {
   "connector_groups": [
     {
       "name": "Azure-Test",
@@ -25,4 +25,4 @@
       ]
     }
   ]
-}
+};

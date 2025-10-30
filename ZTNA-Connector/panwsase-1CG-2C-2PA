@@ -1,0 +1,28 @@
+{
+  "connector_groups": [
+    {
+      "name": "Prisma SASE App Demo",
+      "description": "Test Connector Group Created via SNOW Automation",
+      "preserve_user_id": true,
+      "is_autoscale": true,
+      "connectors": [
+        {
+          "name": "SNOW-Connector",
+          "description": "Connector to test SNOW Automation"
+        }
+      ],
+      "applications": [
+        {
+          "name": "owncloud",
+          "description": "private app for owncloud",
+          "app_enabled": false,
+          "specs": {
+            "fqdn": "owncloud.panwsase.com",
+            "tcp_port": "80",
+            "udp_port": ""
+          }
+        }
+      ]
+    }
+  ]
+}

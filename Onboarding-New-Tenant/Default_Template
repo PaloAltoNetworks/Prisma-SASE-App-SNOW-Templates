@@ -1,0 +1,11 @@
+const Template = {
+    "tenant_service_group": {
+        "display_name": "Ent 5",
+        "support_contact": "test@paloaltonetworks.com",
+        "vertical": "High Tech"
+    },
+    "user": {
+        "principal": "test@paloaltonetworks.com",
+        "role": "superuser"
+    }
+};

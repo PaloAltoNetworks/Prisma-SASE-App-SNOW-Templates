@@ -1,0 +1,12 @@
+const Template = {
+    "infrastructure_settings": {
+        "infrastructure_subnet": "192.168.0.0/24",
+        "infrastructure_subnet_ipv6": "",
+        "infra_bgp_as": "65558",
+        "egress_ip_notification_url": "https://test.com"
+    },
+    "commit": {
+        "admin": "all",
+        "description": "Commit for infrastructure workflow"
+    }
+};

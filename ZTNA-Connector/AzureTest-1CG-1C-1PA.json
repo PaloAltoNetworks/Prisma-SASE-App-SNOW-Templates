@@ -1,0 +1,28 @@
+{
+  "connector_groups": [
+    {
+      "name": "Azure-Test",
+      "description": "SASE App Automation",
+      "preserve_user_id": true,
+      "is_autoscale": true,
+      "connectors": [
+        {
+          "name": "Azure-Connector",
+          "description": "Connector to test SNOW Automation"
+        }
+      ],
+      "applications": [
+        {
+          "name": "docker-test",
+          "description": "private app for docker",
+          "app_enabled": true,
+          "specs": {
+            "fqdn": "docker-test.panwsase.com",
+            "tcp_port": "80",
+            "udp_port": ""
+          }
+        }
+      ]
+    }
+  ]
+}

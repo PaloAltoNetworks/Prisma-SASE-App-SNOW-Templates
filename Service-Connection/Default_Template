@@ -1,0 +1,120 @@
+const Template = {
+    "ike_gateway_config": {
+        "name": "flow-TEST-gateway-02",
+        "authentication_details": {
+            "use_pre_shared_key": true,
+            "pre_shared_key": "Demokey",
+            "certificate_details": {
+                "local_certificate": "Authentication Cookie Cert",
+                "allow_id_payload_mismatch": false,
+                "certificate_profile": "EDL-Hosting-Service-Profile",
+                "strict_validation_revocation": true,
+                "use_management_as_source": false,
+                "peer_id_check": "exact"
+            },
+            "ike_peer_identification": {
+                "type": "ufqdn",
+                "id": "device123@vpn.example.com"
+            },
+            "ike_local_identification": {
+                "type": "ufqdn",
+                "id": "localUser@corp-network.com"
+            }
+        },
+        "branch_device_config": {
+            "ip_address": {
+                "type": "static",
+                "ip": "192.168.0.1"
+            },
+            "passive_mode": true,
+            "fragmentation": false
+        },
+        "ike_advance_option": {
+            "ike_protocol_version": "ikev2-preferred",
+            "ikev1": {
+                "crypto_profile_name": "Default-IKEv1-Profile"
+            },
+            "ikev2": {
+                "crypto_profile_name": "Default-IKEv2-Profile"
+            },
+            "nat_traversal": true
+        }
+    },
+    "ipsec_tunnel_config": {
+        "name": "Flow-Test-IPSec-Tunnel",
+        "tunnel_monitor": {
+            "enable": true,
+            "destination_ip": "192.168.0.1",
+            "proxy_id": "proxy_id_name"
+        },
+        "proxy_id": [{
+            "ip_version": "ipv4",
+            "name": "proxy_id_name",
+            "local": "192.168.1.0/24",
+            "remote": "10.10.10.0/24",
+            "protocol": {
+                "tcp": {
+                    "local_port": 80,
+                    "remote_port": 81
+                }
+            }
+        }, {
+            "ip_version": "ipv6",
+            "name": "proxy_id_v6_name",
+            "local": "2001:db8:1::/64",
+            "remote": "2001:db8:2::/64",
+            "protocol": {
+                "number": 200
+            }
+        }],
+        "ipsec_advance_option": {
+            "ipsec_crypto_profile": "crypto_profile_ipsec",
+            "anti_replay": true,
+            "copy_tos": false,
+            "gre_encapsulation": false
+        }
+    },
+    "service_connection_config": {
+        "name": "Flow-TEST-Service-Connection",
+        "backup_sc": "TEST2",
+        "prisma_access_location": "andorra",
+        "data_traffic_source_nat": {
+            "enable": true,
+            "nat_pool": "10.0.0.0/26"
+        },
+        "static_routing": {
+            "subnets": ["10.0.0.0/24", "192.168.1.0/24", "172.16.5.0/28"]
+        },
+        "dynamic_routing": {
+            "enable": true,
+            "summarize_mobile_user_routes": true,
+            "fast_failover": false,
+            "originate_default_route": false,
+            "use_different_bgp_peer_for_secondary_tunnel": false,
+            "secondary_ipsec_tunnel": "",
+            "no_export_community": "Disabled",
+            "wan_config": {
+                "bgp": {
+                    "do_not_export_routes": true,
+                    "local_ip_address": "192.168.0.1",
+                    "peer_as": "64512",
+                    "peer_ip_address": "192.168.0.2",
+                    "secret": "demoSecret"
+                },
+                "bgp_peer": {
+                    "local_ip_address": "192.168.1.3",
+                    "peer_as": "64512",
+                    "peer_ip_address": "192.168.1.4",
+                    "secret": "demoSecret"
+                }
+            }
+        },
+        "qos_config": {
+            "qos_profile_name": "Default Profile"
+        },
+        "commit_details": {
+            "admin": "all",
+            "description": "Commit for service connection workflow"
+        }
+    }
+};

@@ -1,6 +1,6 @@
 {
   "infrastructure_settings": {
-    "name": "metronlabsroot123",
+    "name": "portal_name",
     "dns_servers": [
       {
         "name": "worldwide",
@@ -43,11 +43,11 @@
       "selected_domain": "default_domain",
       "custom_domain": {
         "cname": "metron",
-        "hostname": "metronlabsroot123",
+        "hostname": "portal_name",
         "ssl_tls_service_profile": "muCustomDomainSSLProfile"
       },
       "default_domain": {
-        "hostname": "metronlabsroot123"
+        "hostname": "portal_name"
       }
     },
     "udp_queries": {

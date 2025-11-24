@@ -1,0 +1,11 @@
+{
+  "tenant_service_group": {
+    "display_name": "Test Tenant",
+    "support_contact": "test@paloaltonetworks.com",
+    "vertical": "High Tech"
+  },
+  "user": {
+    "principal": "test@paloaltonetworks.com",
+    "role": "superuser"
+  }
+}

@@ -1,6 +1,6 @@
 const Template = {
     "infrastructure_settings": {
-        "name": "metronlabsroot12.gpcloudservice.com",
+        "name": "portal_name",
         "dns_servers": [{
             "name": "worldwide",
             "dns_suffix": "",
@@ -35,11 +35,11 @@ const Template = {
             "selected_domain": "default_domain",
             "custom_domain": {
                 "cname": "metron",
-                "hostname": "metronlabsroot12",
+                "hostname": "portal_name",
                 "ssl_tls_service_profile": "muCustomDomainSSLProfile"
             },
             "default_domain": {
-                "hostname": "metronlabsroot12"
+                "hostname": "portal_name"
             }
         },
         "udp_queries": {
@@ -57,10 +57,9 @@ const Template = {
         }]
     },
     "authentication_profile": {
-        "name": "localuser_via_API2",
+        "name": "Test Authentication Profile",
         "allow_list": "all",
         "multi_factor_auth": {
-            "factors": "",
             "mfa_enable": false
         },
         "lockout": {
@@ -86,7 +85,7 @@ const Template = {
         }]
     },
     "agent_profile": {
-        "name": "user-logon-Nicolas-API_v4",
+        "name": "Test Agent Profile",
         "cookie_lifetime": {
             "lifetime_in_hours": 24,
             "lifetime_in_days": 0,
@@ -223,7 +222,7 @@ const Template = {
         }
     },
     "tunnel_profile": {
-        "name": "Created-via-APIv2",
+        "name": "Test Tunnel Profile",
         "os": "Mac",
         "source_user": "any",
         "source_ip_address": "",
@@ -239,15 +238,21 @@ const Template = {
         "no_direct_access_to_local_network": false,
         "access_route": "",
         "exclude_access_route": "",
-        "exclude_applications": "",
-        "include_applications": "",
+        "exclude_applications": "zoom.com ,netflix.com",
+        "include_applications": "exclude-app",
         "exclude_domains": [{
-            "name": "",
-            "ports": ""
+            "name": "hotstar.com",
+            "ports": "55, 56"
+        }, {
+            "name": "flipkart",
+            "ports": "50"
         }],
         "include_domains": [{
-            "name": "",
-            "ports": ""
+            "name": "exclude.sh",
+            "ports": "77"
+        }, {
+            "name": "exclude_1.com",
+            "ports": "9999"
         }]
     },
     "commit": {

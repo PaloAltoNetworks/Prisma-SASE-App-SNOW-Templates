@@ -1,0 +1,75 @@
+{
+    "ike_gateway_config": {
+        "name": "ike-gw22",
+        "authentication_details": {
+            "use_pre_shared_key": true,
+            "pre_shared_key": "Demokey",
+            "ike_peer_identification": {
+                "type": "ufqdn",
+                "id": "name@sasedemo.com"
+            },
+            "ike_local_identification": {
+                "type": "ufqdn",
+                "id": "swest@sasedemo.com"
+            }
+        },
+        "branch_device_config": {
+            "ip_address": {
+                "type": "",
+                "ip": ""
+            },
+            "passive_mode": true,
+            "fragmentation": false
+        },
+        "ike_advance_option": {
+            "ike_protocol_version": "ikev2-preferred",
+            "ikev1": {
+                "crypto_profile_name": "Default-IKEv1-Profile"
+            },
+            "ikev2": {
+                "crypto_profile_name": "Suite-B-GCM-256"
+            },
+            "nat_traversal": true
+        }
+    },
+    "ipsec_tunnel_config": {
+        "name": "lab-tenant-PAB-us-tunnel",
+        "tunnel_monitor": {
+            "enable": false
+        },
+        "proxy_id": [],
+        "ipsec_advance_option": {
+            "ipsec_crypto_profile": "Suite-B-GCM-256",
+            "anti_replay": true,
+            "copy_tos": false,
+            "gre_encapsulation": false
+        }
+    },
+    "service_connection_config": {
+        "name": "HQ-SC",
+        "backup_sc": "",
+        "prisma_access_location": "us-west-2",
+        "data_traffic_source_nat": {
+            "enable": false,
+            "nat_pool": ""
+        },
+        "static_routing": {
+            "subnets": [
+                "192.168.30.0/24",
+                "192.168.112.0/26",
+                "10.0.2.0/24",
+                "10.0.1.0/24"
+            ]
+        },
+        "dynamic_routing": {
+            "enable": false
+        },
+        "qos_config": {
+            "qos_profile_name": "Default Profile"
+        },
+        "commit_details": {
+            "admin": "all",
+            "description": "Commit for service connection workflow"
+        }
+    }
+}

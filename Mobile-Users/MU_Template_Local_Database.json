@@ -1,0 +1,318 @@
+{
+  "infrastructure_settings": {
+    "name": "portal_name",
+    "dns_servers": [
+      {
+        "name": "worldwide",
+        "dns_suffix": "",
+        "internal_dns_match": [
+          {
+            "name": "North America And South America",
+            "domain_list": "",
+            "primary": {
+              "dns_server": ""
+            },
+            "secondary": {
+              "dns_server": ""
+            }
+          }
+        ],
+        "primary_public_dns": {
+          "dns_server": ""
+        },
+        "secondary_public_dns": {
+          "dns_server": ""
+        }
+      }
+    ],
+    "ip_pools": [
+      {
+        "name": "worldwide",
+        "ip_pool": "192.92.0.0/16"
+      }
+    ],
+    "ipv6": true,
+    "enable_wins": [
+      {
+        "name": "worldwide",
+        "primary": "10.10.10.10",
+        "secondary": ""
+      }
+    ],
+    "portal_hostname": {
+      "selected_domain": "default_domain",
+      "custom_domain": {
+        "cname": "metron",
+        "hostname": "portal_name",
+        "ssl_tls_service_profile": "muCustomDomainSSLProfile"
+      },
+      "default_domain": {
+        "hostname": "portal_name"
+      }
+    },
+    "udp_queries": {
+      "attempts": 0,
+      "interval": 0
+    }
+  },
+  "prisma_access_locations": {
+    "region": [
+      {
+        "name": "Europe",
+        "locations": "france-south"
+      },
+      {
+        "name": "North America",
+        "locations": "us-southeast, us-west-2"
+      }
+    ]
+  },
+  "authentication_profile": {
+    "name": "Test Authentication Profile",
+    "allow_list": "all",
+    "multi_factor_auth": {
+      "mfa_enable": false
+    },
+    "lockout": {
+      "failed_attempts": 0,
+      "lockout_time": 0
+    },
+    "single_sign_on": {
+      "kerberos_keytab": "",
+      "realm": ""
+    },
+    "user_domain": "testdomain.com"
+  },
+  "authentication_settings": {
+    "os": "Any",
+    "authentication_message": "Enter login credentials",
+    "user_credential_or_client_cert_required": false
+  },
+  "global_settings": {
+    "agent_version": "6.2.8",
+    "manual_gateway": [
+      {
+        "name": "europe",
+        "locations": "france-south"
+      }
+    ]
+  },
+  "agent_profile": {
+    "name": "Test Agent Profile",
+    "cookie_lifetime": {
+      "lifetime_in_hours": 24,
+      "lifetime_in_days": 0,
+      "lifetime_in_minutes": 0
+    },
+    "certificate_profile": "EDL-Hosting-Service-Profile",
+    "client_certificate": "GP_Log_Certificate",
+    "cookie_encrypt_decrypt_cert": "Authentication Cookie Cert",
+    "generate_cookie": true,
+    "third_party_vpn_clients": "PAN Virtual Ethernet Adapter",
+    "source_user": "",
+    "save_user_credentials": "1",
+    "os": "Mac",
+    "internal_host_detection": {
+      "hostname": "gpcloudservice.com",
+      "ip_address": "192.168.0.254"
+    },
+    "internal_host_detection_v6": {
+      "hostname": "gpcloudservice.com",
+      "ip_address": "2001:0db8:85a3:0000:0000:8a2e:0370:7334"
+    },
+    "gp_app_config": [
+      {
+        "name": "tunnel-mtu",
+        "value": 1400
+      },
+      {
+        "name": "connect-method",
+        "value": "on-demand"
+      }
+    ],
+    "agent_ui": {
+      "agent_user_override_timeout": 0,
+      "max_agent_user_overrides": 0,
+      "passcode": "JuRN%phV!$#[?~2_S7",
+      "uninstall_password": "JuRN%phV!$#[?~2_S7",
+      "welcome_page": "factory-default"
+    },
+    "machine_account_exists_with_serialno": true,
+    "custom_checks": {
+      "criteria": {
+        "plist": [
+          {
+            "name": "Example PLIST",
+            "negate": false,
+            "key": [
+              {
+                "name": "KeyName",
+                "negate": false,
+                "value": "SomeValue"
+              }
+            ]
+          }
+        ],
+        "registry_key": [
+          {
+            "name": "ExampleRegistryKey",
+            "default_value_data": "defaultVal",
+            "negate": false,
+            "registry_value": [
+              {
+                "name": "RegistryValueName",
+                "negate": false,
+                "value_data": "ValueContent"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "gateways": {
+      "external": {
+        "list": [
+          {
+            "name": "Prisma Access",
+            "manual": true,
+            "choice": {
+              "ip": {
+                "ipv4": "",
+                "ipv6": ""
+              }
+            },
+            "priority_rule": [
+              {
+                "name": "Any",
+                "priority": "1"
+              }
+            ]
+          }
+        ]
+      },
+      "internal": {
+        "list": [
+          {
+            "name": "Prisma Access Internal Gateway",
+            "choice": {
+              "fqdn": ""
+            },
+            "source_ip": ""
+          }
+        ]
+      }
+    },
+    "hip_collection": {
+      "certificate_profile": "EDL-Hosting-Service-Profile",
+      "collect_hip_data": true,
+      "max_wait_time": 10,
+      "custom_checks": {
+        "linux": {
+          "process_list": ""
+        },
+        "mac_os": {
+          "plist": [
+            {
+              "name": "",
+              "key": ""
+            },
+            {
+              "name": "",
+              "key": ""
+            }
+          ],
+          "process_list": ""
+        },
+        "windows": {
+          "process_list": "",
+          "registry_key": [
+            {
+              "name": "",
+              "registry_value": ""
+            },
+            {
+              "name": "",
+              "registry_value": ""
+            }
+          ]
+        }
+      },
+      "exclusion": {
+        "category": [
+          {
+            "name": "Antivirus",
+            "vendor": [
+              {
+                "name": "Symantec",
+                "product": [
+                  "Symantec Endpoint Protection"
+                ]
+              },
+              {
+                "name": "McAfee",
+                "product": [
+                  "McAfee VirusScan"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Firewall",
+            "vendor": [
+              {
+                "name": "Palo Alto Networks",
+                "product": [
+                  "Traps"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "tunnel_profile": {
+    "name": "Test Tunnel Profile",
+    "os": "Mac",
+    "source_user": "any",
+    "source_ip_address": "",
+    "source_region": "",
+    "cookie_lifetime": {
+      "lifetime_in_hours": 24,
+      "lifetime_in_days": 0,
+      "lifetime_in_minutes": 0
+    },
+    "cookie_encrypt_decrypt_cert": "Authentication Cookie Cert",
+    "generate_cookie": true,
+    "retrieve_framed_ip_address": false,
+    "no_direct_access_to_local_network": false,
+    "access_route": "",
+    "exclude_access_route": "",
+    "exclude_applications": "zoom.com ,netflix.com",
+    "include_applications": "exclude-app",
+    "exclude_domains": [
+      {
+        "name": "hotstar.com",
+        "ports": "55, 56"
+      },
+      {
+        "name": "flipkart",
+        "ports": "50"
+      }
+    ],
+    "include_domains": [
+      {
+        "name": "exclude.sh",
+        "ports": "77"
+      },
+      {
+        "name": "exclude_1.com",
+        "ports": "9999"
+      }
+    ]
+  },
+  "commit": {
+    "admin": "all",
+    "description": "Commit for mobile users workflow"
+  }
+}
